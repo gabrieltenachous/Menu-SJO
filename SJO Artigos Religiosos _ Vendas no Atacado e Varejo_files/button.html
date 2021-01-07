@@ -1,0 +1,90 @@
+
+<!-- saved from url=(0065)https://bao.omnize.com.br/buttons/omnize/button.html?color=F35050 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<style>
+			body {
+				margin: 0;
+			}
+			#omz-button {
+				background-color:#ea4143;
+				box-shadow: 0 2px 2px rgba(0,0,0,.4);
+				border: unset;
+				border-radius: 20px;
+				margin: 0 0 0 2px;
+				padding: 0;
+				width: 65px;
+				height: 65px;
+				cursor: pointer;
+				animation: createBox .5s;
+			}
+			#omz-button-icon-open {
+				fill: white;
+				width: 42px;
+				transform: scale(1);
+				position: absoulte;
+				top: 12px;
+				right: 15px;
+				transition: transform .2s ease-in-out;
+			}
+			#omz-button-icon-close {
+				fill: white;
+				width: 20px;
+				transform: scale(0);
+				position: absolute;
+				top: 23px;
+				right: 25px;
+				transition: transform .2s ease-in-out;
+			}
+			#omz-button:focus {outline:0;}
+			@keyframes createBox {
+				from {
+					transform: scale(0);
+				}
+				to {
+					transform: scale(1);
+				}
+			}
+		</style>
+	<style type="text/css"></style></head>
+	<body>
+		<button id="omz-button" style="background-color: rgb(243, 80, 80);">
+			<svg xmlns="http://www.w3.org/2000/svg" width="45px" height="39.2px" viewBox="0 0 18 20" id="omz-button-icon-open">
+				<path fill="#ffffff" fill-rule="evenodd" d="M10.59 19.933a.318.318 0 0 1-.447-.056.36.36 0 0 1-.062-.252c.062-.91.062-1.295.008-2.52a9.04 9.04 0 0 1-1.375.104c-.902 0-1.764-.13-2.587-.392a8.623 8.623 0 0 1-2.268-1.098 8.157 8.157 0 0 1-1.851-1.646 9.256 9.256 0 0 1-1.33-2.117A8.284 8.284 0 0 1 0 8.624c0-.914.13-1.776.397-2.587a9.137 9.137 0 0 1 1.075-2.236 9.243 9.243 0 0 1 1.69-1.821A7.976 7.976 0 0 1 5.333.707c.53-.21 1.075-.379 1.63-.51A7.676 7.676 0 0 1 8.714 0a8.712 8.712 0 0 1 4.895 1.49 8.6 8.6 0 0 1 3.142 3.763 8.79 8.79 0 0 1 .678 3.37c0 5.919-4.667 9.617-6.84 11.31z"></path>
+			</svg>
+			<svg viewBox="358 708 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="omz-button-icon-close">
+				<path d="M369.4825,718.02625 L377.7215,709.83225 C378.1165,709.44125 378.1165,708.80825 377.7215,708.41825 C377.3275,708.02725 376.6875,708.02725 376.2935,708.41825 L368.0615,716.60525 L359.7535,708.29625 C359.3595,707.90125 358.7195,707.90125 358.3255,708.29625 C357.9315,708.69225 357.9315,709.33325 358.3255,709.72825 L366.6275,718.03125 L358.2955,726.31725 C357.9015,726.70825 357.9015,727.34125 358.2955,727.73125 C358.6895,728.12225 359.3295,728.12225 359.7235,727.73125 L368.0485,719.45225 L376.3235,727.72825 C376.7175,728.12325 377.3575,728.12325 377.7515,727.72825 C378.1455,727.33225 378.1455,726.69125 377.7515,726.29625 L369.4825,718.02625 L369.4825,718.02625 Z" stroke="none" fill-rule="evenodd"></path>
+			</svg>
+		</button>
+	
+	<script>
+		function findGetParameter(parameterName) {
+			var result = null,
+				tmp = [];
+			location.search
+				.substr(1)
+				.split("&")
+				.forEach(function (item) {
+				tmp = item.split("=");
+				if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+				});
+			return result;
+		}
+		var color = findGetParameter('color') || 'ea4143'
+		document.getElementById('omz-button').addEventListener('click', handleButtonClick, false);
+		document.getElementById('omz-button').style.backgroundColor = "#" + color;
+
+		function handleButtonClick(e) {
+			window.top.postMessage('omzButtonClick', '*');
+		}
+
+		window.onmessage = function(e){
+			if (e.data == 'omzWgtOpened') {
+				document.getElementById('omz-button-icon-open').style.transform = 'scale(0)';
+				document.getElementById('omz-button-icon-close').style.transform = 'scale(1)';
+			} else if (e.data == 'omzWgtClosed') {
+				document.getElementById('omz-button-icon-open').style.transform = 'scale(1)';
+				document.getElementById('omz-button-icon-close').style.transform = 'scale(0)';
+			}
+		};
+	</script>
+</body></html>
