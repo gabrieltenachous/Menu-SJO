@@ -76,19 +76,26 @@ function functionImagemCrucifixos(){
 
 function functionImagemCapela(){
     var img = new Image();
-    img.src="https://cdnv2.moovin.com.br/sjo/imagens/produtos/original/capela-de-madeira-02-3.png"; 
+    img.src="https://cdnv2.moovin.com.br/sjo/imagens/produtos/lista/capela-de-madeira-02-3.png"; 
     document.getElementById("imgCasa").src = img.src;
 }
 
-function functionImagemBibliaCatolica(){
+function functionImagemBibliaCatolica () {
     var img = new Image();
-    img.src="https://cdnv2.moovin.com.br/sjo/imagens/produtos/original/9788527616096_1-1.jpeg"; 
+    img.src="https://cdnv2.moovin.com.br/sjo/imagens/produtos/lista/9788527616096_1-1.jpeg"; 
     document.getElementById("imgCasa").src = img.src;
 }
 
 
 function functionImagemAdorno(){
     var img = new Image();
-    img.src="https://cdnv2.moovin.com.br/sjo/imagens/produtos/original/eder_brazolin-3_opt.jpg"; 
+    img.src="https://cdnv2.moovin.com.br/sjo/imagens/produtos/lista/eder_brazolin-3_opt.jpg"; 
     document.getElementById("imgCasa").src = img.src;
+} 
+
+function functionImagInfAdorno(){
+    var img = new Image();
+    img.src="https://cdnv2.moovin.com.br/sjo/imagens/produtos/lista/9788527616096_1-1.jpeg"; 
+    document.getElementById("imgInfantil").src = img.src;
 }
+
